@@ -1,0 +1,22 @@
+<h3>Listado de Gallinas</h3>
+
+<div *ngIf="deletedGallina; else nothingWasDeleted">
+<h3>Gallina aliñada <small class="text-danger">{{ deletedGallina }}</small> </h3>
+</div>
+
+<ng-template #nothingWasDeleted>
+<h3>No hay gallinas en la nevera</h3>
+</ng-template>
+
+<!--Si el largo de los nombres es mayor que cero-->>
+<button
+*ngIf="gallinaNames.length>0"
+(click)="removeLastGallina()"
+class=" btn btn-outline-danger">
+  Aliñar gallina</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of gallinaNames"
+  class="list-group-item">{{ name }}</li>
+
+</ul>
